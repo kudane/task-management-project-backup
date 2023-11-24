@@ -2,7 +2,11 @@
 (http://localhost:4200/)
 ```
 cd task-management-project/frontend
+```
+```
 npm i -f
+```
+```
 ng serve
 ```
 
