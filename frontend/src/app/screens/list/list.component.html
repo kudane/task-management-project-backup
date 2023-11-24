@@ -1,0 +1,53 @@
+<section>
+    <button routerLink="/new" type="button" style="float: right;background-color: limegreen;">NEW</button>
+    <h2>Show Task</h2>
+</section>
+
+<section>
+    <label>Priorities:</label>
+    <select [(ngModel)]="priority" (change)="onSearchChange()">
+        <option value="">All</option>
+        @for (priority of (priority$ | async); track priority.id) {
+        <option [value]="priority.id">{{priority.name}}</option>
+        }
+    </select>
+    &nbsp;
+    <label>Categories:</label>
+    <select [(ngModel)]="type" (change)="onSearchChange()">
+        <option value="">All</option>
+        @for (type of (type$ | async); track type.id) {
+        <option [value]="type.id">{{type.name}}</option>
+        }
+    </select>
+    <br /> <br />
+</section>
+
+<section>
+    <table style="width: 100%;">
+        <thead>
+            <th>No</th>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>Due Date</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            @for (task of (tasks$ | async); track task.id; let idx = $index) {
+            <tr>
+                <td>{{idx + 1}}</td>
+                <td>{{task.name}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.startDate | date:'MM-dd-yyyy'}}</td>
+                <td>{{task.dueDate | date:'MM-dd-yyyy'}}</td>
+                <td>
+                    <button [routerLink]="['/edit', task.id]" type="button" style="background-color: deepskyblue;">EDIT</button>&nbsp;
+                    <button (click)="onTaskDelete(task.id)" type="button" style="background-color: red;">DELETE</button>
+                </td>
+            </tr>
+            }@empty {
+            Items Count: 0
+            }
+        </tbody>
+    </table>
+</section>
