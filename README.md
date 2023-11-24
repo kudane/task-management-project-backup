@@ -11,3 +11,5 @@ ng serve
 cd task-management-project/backend
 dotnet run --project Backend/backend.csproj --urls "https://localhost:7071;http://localhost:5097"
 ```
+
+![image info](https://github.com/kudane/task-management-project/blob/main/ER.JPG)
