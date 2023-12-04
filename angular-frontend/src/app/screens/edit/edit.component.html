@@ -1,0 +1,37 @@
+<section>
+    <a routerLink="/" type="button" style="float: right;background-color: darkgray;">BACK</a>
+    <h2>Edit Task</h2>
+</section>
+
+<section>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label>Task name <span style="color: red;">*</span>:</label> &nbsp;
+        <input type="text" name="taskname" formControlName="name"><br>
+
+        <label>Description <span style="color: red;">*</span>:</label>&nbsp;
+        <input type="text" formControlName="description"><br>
+
+        <label>Priorities <span style="color: red;">*</span>:</label>&nbsp;
+        <select formControlName="priority">
+            @for (priority of (priority$ | async); track priority.id) {
+            <option [value]="priority.id">{{priority.name}}</option>
+            }
+        </select>
+        <br>
+
+        <label>Categories <span style="color: red;">*</span>:</label>&nbsp;
+        <select formControlName="type">
+            @for (type of (type$ | async); track type.id) {
+            <option [value]="type.id">{{type.name}}</option>
+            }
+        </select><br>
+
+        <label>Start Date:</label>&nbsp;
+        <input type="date" formControlName="startDate"><br>
+
+        <label>Due Date:</label>&nbsp;
+        <input type="date" formControlName="dueDate" value="11/11/2566"><br><br>
+
+        <input type="submit" value="Submit">&nbsp;
+    </form>
+</section>
