@@ -1,7 +1,7 @@
-# Frontend Install
+# Augular-Frontend Install
 (http://localhost:4200/)
 ```
-cd task-management-project/frontend
+cd task-management-project/angular-frontend
 ```
 ```
 npm i -f
@@ -10,9 +10,9 @@ npm i -f
 ng serve
 ```
 
-# Backend Install
+# Dotnet-Backend Install
 ```
-cd task-management-project/backend
+cd task-management-project/dotnet-backend
 ```
 ```
 dotnet run --project Backend/backend.csproj --urls "https://localhost:7071;http://localhost:5097"
